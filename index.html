@@ -1,27 +1,240 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <title>Belriguardo</title>
-    <style>
-        body {
-            background-color: #faf8f5;
-            color: #2c2a29;
-            font-family: Georgia, serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-        h1 {
-            font-size: 3rem;
-            font-weight: 300;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Belriguardo Project</title>
+  <meta name="description" content="The Belriguardo Project restores the Chiesina del Belriguardo as a place for art, music, science and public thought.">
+  <meta name="theme-color" content="#f5f3ee">
+  <meta property="og:title" content="Belriguardo Project">
+  <meta property="og:description" content="Heritage as horizon.">
+  <meta property="og:type" content="website">
+  <style>
+    :root {
+      --paper: #f5f3ee;
+      --ink: #171714;
+      --muted: #6e6b64;
+      --line: rgba(23,23,20,.15);
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; }
+
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
+
+    header {
+      min-height: 92vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: 28px 0 34px;
+    }
+
+    .hero-copy { align-self: center; padding: 80px 0 70px; }
+    .eyebrow {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      max-width: 900px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(58px, 9.5vw, 132px);
+      font-weight: 400;
+      line-height: .92;
+      letter-spacing: -.045em;
+    }
+    .sub {
+      margin: 34px 0 0;
+      max-width: 600px;
+      font-size: clamp(18px, 2vw, 25px);
+      line-height: 1.45;
+      color: #383731;
+    }
+
+    .photo { margin: 0 auto; width: min(100% - 40px, 1320px); }
+    .photo-image {
+      height: min(62vw, 720px);
+      min-height: 430px;
+      background: #e7e3db center 62% / cover no-repeat;
+      filter: saturate(.82) contrast(.97);
+    }
+
+    section { padding: 110px 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 8vw;
+      border-top: 1px solid var(--line);
+      padding-top: 28px;
+    }
+    .label {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .text p {
+      margin: 0 0 26px;
+      max-width: 780px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(27px, 3.2vw, 45px);
+      line-height: 1.18;
+      letter-spacing: -.025em;
+    }
+    .text .small {
+      max-width: 690px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      letter-spacing: 0;
+      color: #45433d;
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-top: 64px;
+    }
+    .principle { background: var(--paper); padding: 28px; min-height: 230px; }
+    .principle .n { color: var(--muted); font-size: 12px; margin-bottom: 70px; }
+    .principle h3 {
+      margin: 0 0 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 25px;
+      font-weight: 400;
+    }
+    .principle p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 90px;
+    }
+    .gallery figure { margin: 0; overflow: hidden; }
+    .gallery-photo {
+      aspect-ratio: 1 / 1.06;
+      background: #e7e3db center / cover no-repeat;
+      filter: saturate(.78) contrast(.97);
+    }
+
+    footer {
+      padding: 26px 0 34px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 760px) {
+      header { min-height: 78vh; }
+      .hero-copy { padding: 70px 0 50px; }
+      .photo { width: 100%; }
+      .photo img { min-height: 520px; height: 75vh; }
+      section { padding: 78px 0; }
+      .grid { grid-template-columns: 1fr; gap: 34px; }
+      .principles { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: 1fr; gap: 12px; margin-top: 64px; }
+      .principle { min-height: 0; }
+      .principle .n { margin-bottom: 36px; }
+      footer { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
-    <h1>Belriguardo</h1>
+  <header class="wrap">
+<div class="hero-copy" id="top">
+      <p class="eyebrow">Sarteano · Southern Tuscany</p>
+      <h1>Heritage<br>as horizon.</h1>
+      <p class="sub">Restoring the Chiesina del Belriguardo as a living place for art, music, science and public thought.</p>
+    </div>
+
+  </header>
+
+  <!-- PHOTO 1: main exterior / landscape image. Upload a file named photo1.jpg to the repository root. -->
+  <figure class="photo" aria-label="The Chiesina del Belriguardo">
+    <div class="photo-image" style="background-image: url('photo1.jpg');"></div>
+  </figure>
+
+  <main>
+    <section class="wrap" id="project">
+      <div class="grid">
+        <p class="label">The place</p>
+        <div class="text">
+          <p>A small sixteenth-century church, almost forgotten, on the road from Sarteano to Cetona.</p>
+          <p class="small">Belriguardo stands close to the Pianacce necropolis and the Tomba della Quadriga Infernale, within a landscape shaped by Etruscan, medieval and Renaissance history. Its rare octagonal plan gives the building a quiet geometric presence.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="grid">
+        <p class="label">The project</p>
+        <div class="text">
+          <p>Not restoration as nostalgia. Restoration as continuity.</p>
+          <p class="small">The project exists to rescue the church from structural decay and return it to use: a small center with a wide outlook, rooted in local history and open to contemporary culture.</p>
+        </div>
+      </div>
+
+      <div class="principles" aria-label="Project principles">
+        <article class="principle">
+          <div class="n">01</div>
+          <h3>Preserve</h3>
+          <p>Conserve the building, its stories and its material history with care.</p>
+        </article>
+        <article class="principle">
+          <div class="n">02</div>
+          <h3>Activate</h3>
+          <p>Make Belriguardo a place for artists, musicians, thinkers and the community.</p>
+        </article>
+        <article class="principle">
+          <div class="n">03</div>
+          <h3>Connect</h3>
+          <p>Put local memory in dialogue with ideas, disciplines and people from elsewhere.</p>
+        </article>
+      </div>
+
+      <div class="gallery" aria-label="The church today">
+        <!-- PHOTO 2: interior image. Upload photo2.jpg to the repository root. -->
+        <figure>
+          <div class="gallery-photo" style="background-image: url('photo2.jpg');"></div>
+        </figure>
+
+        <!-- PHOTO 3: architectural detail / vault / exterior detail. Upload photo3.jpg to the repository root. -->
+        <figure>
+          <div class="gallery-photo" style="background-image: url('photo3.jpg');"></div>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <span>Belriguardo Project</span>
+    <span>Sarteano, Siena, Italy</span>
+    <span>belriguardo.art</span>
+  </footer>
 </body>
 </html>
