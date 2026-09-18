@@ -1,19 +1,14 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Belriguardo Project</title>
-
   <meta
     name="description"
     content="Sarteano. Tuscany. The Belriguardo Project restores the Chiesina del Belriguardo as a place for art, music, science and public thought."
   >
-
   <meta name="theme-color" content="#ffffff">
-
   <meta property="og:title" content="Belriguardo Project">
   <meta property="og:description" content="Heritage as horizon.">
   <meta property="og:type" content="website">
@@ -56,14 +51,40 @@
 
     header {
       min-height: 92vh;
-      display: grid;
-      grid-template-rows: 1fr;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       padding: 28px 0 34px;
     }
 
+    /* Top utility bar */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .top-bar a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: opacity .2s ease;
+    }
+
+    .top-bar a:hover {
+      opacity: .6;
+    }
+
     .hero-copy {
-      align-self: center;
-      padding: 80px 0 70px;
+      margin: auto 0;
+      padding: 60px 0 50px;
     }
 
     h1 {
@@ -82,6 +103,28 @@
       color: #333333;
       font-size: clamp(18px, 2vw, 25px);
       line-height: 1.45;
+    }
+
+    /* Hero button linking to PDF */
+    .hero-actions {
+      margin-top: 36px;
+    }
+
+    .btn-dossier {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 26px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      font-size: 14px;
+      letter-spacing: .02em;
+      transition: background-color .2s ease, color .2s ease;
+    }
+
+    .btn-dossier:hover {
+      background-color: var(--ink);
+      color: var(--paper);
     }
 
     .photo {
@@ -136,11 +179,6 @@
       line-height: 1.65;
       letter-spacing: 0;
     }
-
-    /*
-      Two contextual photographs placed below
-      “a quiet geometric presence.”
-    */
 
     .context {
       display: grid;
@@ -214,6 +252,7 @@
     footer {
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
       gap: 20px;
       padding: 26px 0 34px;
       border-top: 1px solid var(--line);
@@ -223,13 +262,19 @@
       text-transform: uppercase;
     }
 
+    footer a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     @media (max-width: 760px) {
       header {
         min-height: 78vh;
       }
 
       .hero-copy {
-        padding: 70px 0 50px;
+        padding: 50px 0 30px;
       }
 
       .photo {
@@ -264,37 +309,55 @@
 
       footer {
         flex-direction: column;
+        gap: 12px;
       }
     }
   </style>
 </head>
-
 <body>
 
   <header class="wrap">
-    <div class="hero-copy" id="top">
+    <!-- Top Bar Navigation Link -->
+    <nav class="top-bar" aria-label="Quick links">
+      <span>Belriguardo Foundation</span>
+      <!-- Update href to match your PDF filename in Github -->
+      <a href="belriguardo-foundation-dossier.pdf" target="_blank" rel="noopener noreferrer">
+        Project Dossier (PDF) ↗
+      </a>
+    </nav>
 
+    <div class="hero-copy" id="top">
       <h1>
         Heritage<br>
         as horizon.
       </h1>
-
       <p class="sub">
         Sarteano. Tuscany. 
         Restoring the Chiesina del Belriguardo
         as a living place for art, music, science and public thought.
       </p>
 
+      <!-- Prominent Hero Link -->
+      <div class="hero-actions">
+        <!-- Update href to match your PDF filename in Github -->
+        <a
+          class="btn-dossier"
+          href="belriguardo-foundation-dossier.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>Project Dossier &amp; Restoration Plan (PDF)</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
     </div>
   </header>
-
 
   <!--
     PHOTO 1
     Main exterior or landscape photograph.
     Upload it beside index.html as photo1.jpg
   -->
-
   <figure class="photo" aria-label="The Chiesina del Belriguardo">
     <div
       class="photo-image"
@@ -304,22 +367,15 @@
     ></div>
   </figure>
 
-
   <main>
-
     <section class="wrap" id="project">
-
       <div class="grid">
-
         <p class="label">The place</p>
-
         <div class="text">
-
           <p>
             A small sixteenth-century church, almost forgotten,
             on the road from Sarteano to Cetona.
           </p>
-
           <p class="small">
             Belriguardo stands close to the Pianacce necropolis and the
             Tomba della Quadriga Infernale, within a landscape shaped by
@@ -327,21 +383,11 @@
             plan gives the building a quiet geometric presence.
           </p>
 
-
           <!--
-            PHOTO 4
-            Photograph of Sarteano.
-            Upload it beside index.html as photo4.jpg
+            PHOTO 4: Sarteano (photo4.jpg)
+            PHOTO 5: Quadriga Infernale (photo5.jpg)
           -->
-
-          <!--
-            PHOTO 5
-            Photograph connected to the Tomba della Quadriga Infernale.
-            Upload it beside index.html as photo5.jpg
-          -->
-
           <div class="context">
-
             <a
               class="context-card"
               href="https://sarteanoliving.it/en/"
@@ -349,21 +395,17 @@
               rel="noopener noreferrer"
               aria-label="Discover Sarteano"
             >
-
               <div
                 class="context-image"
                 role="img"
                 aria-label="Sarteano"
                 style="background-image: url('photo4.jpg');"
               ></div>
-
               <div class="context-title">
                 <span>Sarteano</span>
                 <span>Discover ↗</span>
               </div>
-
             </a>
-
 
             <a
               class="context-card"
@@ -372,62 +414,42 @@
               rel="noopener noreferrer"
               aria-label="Discover the Tomba della Quadriga Infernale"
             >
-
               <div
                 class="context-image"
                 role="img"
                 aria-label="Tomba della Quadriga Infernale"
                 style="background-image: url('photo5.jpg');"
               ></div>
-
               <div class="context-title">
                 <span>Tomba della Quadriga Infernale</span>
                 <span>Discover ↗</span>
               </div>
-
             </a>
-
           </div>
-
         </div>
-
       </div>
-
     </section>
 
-
     <section class="wrap">
-
       <div class="grid">
-
         <p class="label">The project</p>
-
         <div class="text">
-
           <p>
             Not restoration as nostalgia.
             Restoration as continuity.
           </p>
-
           <p class="small">
             The project exists to rescue the church from structural decay
             and return it to use: a small center with a wide outlook,
             rooted in local history and open to contemporary culture.
           </p>
-
         </div>
-
       </div>
 
-
       <div class="gallery" aria-label="The church today">
-
         <!--
-          PHOTO 2
-          Interior photograph.
-          Upload it beside index.html as photo2.jpg
+          PHOTO 2: Interior photograph (photo2.jpg)
         -->
-
         <figure>
           <div
             class="gallery-photo"
@@ -437,13 +459,9 @@
           ></div>
         </figure>
 
-
         <!--
-          PHOTO 3
-          Architectural detail, vault or another Belriguardo photograph.
-          Upload it beside index.html as photo3.jpg
+          PHOTO 3: Architectural detail (photo3.jpg)
         -->
-
         <figure>
           <div
             class="gallery-photo"
@@ -452,16 +470,15 @@
             style="background-image: url('photo3.jpg');"
           ></div>
         </figure>
-
       </div>
-
     </section>
-
   </main>
 
-
   <footer class="wrap">
-    <span>Belriguardo Project</span>
+    <span>Belriguardo Foundation</span>
+    <a href="belriguardo-foundation-dossier.pdf" target="_blank" rel="noopener noreferrer">
+      Dossier &amp; Restoration Plan (PDF) ↗
+    </a>
     <span>Sarteano, Siena, Italy</span>
     <span>belriguardo.art</span>
   </footer>
